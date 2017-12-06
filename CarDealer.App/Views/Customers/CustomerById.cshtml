@@ -1,0 +1,37 @@
+﻿@model CustomerModel
+
+@{
+    ViewData["Title"] = "Customer " + Model.Name;
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Total Cars
+            </th>
+            <th>
+                Total Spent Money
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>
+                    @Model.Name
+                </td>
+                <td>
+                    @Model.TotalCars.ToString()
+                </td>
+                <td>
+                    @Model.TotalSpentMoney.ToString() 
+                </td>
+            </tr>
+    </tbody>
+    </table>

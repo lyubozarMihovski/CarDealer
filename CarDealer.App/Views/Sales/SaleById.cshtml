@@ -1,0 +1,48 @@
+﻿@model SalesModel
+
+@{
+    ViewData["Tiltle"] = "Sale By Id";
+}
+
+<h2>@ViewData["Tiltle"]</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Car
+            </th>
+            <th>
+                Customer
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Discount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        <li>@Model.Car.Make</li>
+                        <li>@Model.Car.Model</li>
+                        <li>@Model.Car.TravelledDistance.ToString()</li>
+                    </ul>
+                </td>
+                <td>
+                    @Model.CustomerName
+                </td>
+                <td>
+                    @Model.Price.ToString()
+                </td>
+                <td>
+                    @((Model.Discount * 100).ToString()) %
+                </td>
+
+            </tr>
+    </tbody>
+</table>
+

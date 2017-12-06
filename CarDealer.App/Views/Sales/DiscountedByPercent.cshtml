@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SalesModel>
+
+@{
+    ViewData["Tiltle"] = "All Sales Discouted By " + Model.Select(m => m.Discount * 100).FirstOrDefault().ToString() + "%"; 
+}
+
+<h2>@ViewData["Tiltle"]</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Car
+            </th>
+            <th>
+                Customer
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Discount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sale in Model)
+        {
+            <tr>
+                <td>
+                <ul>
+                    <li>@sale.Car.Make</li>
+                    <li>@sale.Car.Model</li>
+                    <li>@sale.Car.TravelledDistance.ToString()</li>
+                </ul>
+                </td>
+                <td>
+                    @sale.CustomerName
+                </td>
+                <td>
+                    @sale.Price.ToString()
+                </td>
+                <td>
+                    @((sale.Discount * 100).ToString()) %
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
